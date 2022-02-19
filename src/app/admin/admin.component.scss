@@ -1,0 +1,24 @@
+.left {
+    box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.77);
+    height: 100vh;
+}
+.tab {
+    text-align: center;
+    margin-top: 1vh;
+    transition: 200ms;
+}
+
+.tab:hover {
+    color: rgba(0, 0, 0, 0.5);
+    transition: 200ms;
+}
+
+.icon-size {
+    width: 16px;
+    height: 16px;
+}
+
+.tab-p {
+    font-weight: 500;
+    font-size: 16px;
+}

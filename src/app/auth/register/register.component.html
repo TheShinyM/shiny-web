@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container text-center" [formGroup]="registerForm">
+  <div class="row mt-5">
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input type="text" formControlName="name" matInput>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email" formControlName="email" matInput>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" formControlName="password" matInput>
+        <!-- <p *ngIf="passwordIsNotSame" class="not-same-password">The Passsword are not the same</p> -->
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Confirm password</mat-label>
+        <input type="password" formControlName="password2" matInput>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button type="submit" class="btn btn-success" (click)="registerUser()">Register</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="container" *ngIf="gm || editMode">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="form" (submit)="saveGm()">
+        <div class="row">
+          <div class="col mt-5">
+          <mat-form-field class="w-100">
+            <mat-label>Name</mat-label>
+            <input type="text" mat-input matInput formControlName="name">
+          </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+          <mat-form-field class="w-100">
+            <mat-label>Beschreibung</mat-label>
+            <textarea type="text"cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1" mat-input matInput formControlName="description"></textarea>
+          </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>BildURL</mat-label>
+            <input type="text" mat-input matInput formControlName="pictureURL">
+          </mat-form-field>
+          <img *ngIf="!editMode" [src]="gm.pictureURL" [alt]="gm.name" class="w-75">
+          </div>
+        <!-- </div> -->
+        <!-- <div class="row"> -->
+          <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>HintergrundURL</mat-label>
+            <input type="text" mat-input matInput formControlName="backgroundURL">
+          </mat-form-field>
+          <img *ngIf="!editMode" [src]="gm.backgroundURL" [alt]="gm.name" class="w-75 mt-2">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <button class="btn btn-secondary w-100" type="button" [routerLink]="['/admin/gm']">Cancel</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-success w-100" type="button" (click)="saveGm()">Save</button>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <button class="btn btn-warning w-100" type="button" (click)="deactivateGM()">{{ deactMessage }}</button>
+          </div>
+          <div class="col-6" *ngIf="!editMode">
+            <button class="btn btn-danger w-100" type="button" (click)="deleteGM()">Delete</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-12" formArrayName="rules">
+              <div class="row" *ngFor="let ruli of rules.controls; let i = index"
+                style="margin-top: 10px;">
+                <div class="col-10">
+                  <input type="text" class="form-control" formControlName="{{ i }}">
+                </div>
+                <div class="col-2">
+                  <button type="button" class="btn btn-danger" (click)="deleteRule(i)">X</button>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-xs-12">
+                  <button type="button" class="btn btn-primary" (click)="addRule()">Add Rule</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

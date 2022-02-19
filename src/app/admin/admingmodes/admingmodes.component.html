@@ -1,0 +1,12 @@
+<div class="container">
+  <div *ngFor="let gm of gms; let i = index">
+    <div class="row" [routerLink]="[gm.id]" style="cursor: pointer;">
+      <div class="col-6"><h4>{{ gm.name }}</h4></div>
+      <div class="col-6"><h4>{{ gm.id }}</h4></div>
+    </div>
+    <hr>
+  </div>
+</div>
+<button class="add-btn position-absolute add-btn-bg" [routerLink]="['create']">
+  <mat-icon>add</mat-icon>
+</button>

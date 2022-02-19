@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="bg">
+<h1 class="mb-5">Spielmodi</h1>
+          <div class="cardList">
+            <ng-container *ngFor="let gm of gms; let i = index">
+              <app-card class="cardListItem" [name]="gm.name" [pictureURL]="gm.pictureURL" [id]="gm.id"></app-card>
+            </ng-container>
+          </div>
+    </div>
+    <!-- <router-outlet></router-outlet> -->
+<app-footer></app-footer>

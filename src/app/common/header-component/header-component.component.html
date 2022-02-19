@@ -1,0 +1,74 @@
+<!-- <header>
+  <div class="header">
+      <div class="logo">
+          <a [routerLink]="['/auth']"><img src="../../../assets/img/logo.png" alt="logo"></a>
+      </div>
+          <button class="menu me-2" id="men" (click)="openMenu()"
+            onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+            aria-label="Main Menu">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <path class="line line1"
+                d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+              <path class="line line2" d="M 20,50 H 80" />
+              <path class="line line3"
+                d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+            </svg>
+          </button>
+      <ul class="nav">
+          <li><a [routerLink]="['/']" class="px-2">Home</a></li>
+          <li><a href="./forum" class="px-2">Forum</a></li>
+          <li><a href="https://shinycreators.tebex.io" class="px-2">Shop</a></li>
+          <li><a [routerLink]="['/team']" class="px-2">Team</a></li>
+          <li><a [routerLink]="['/socials']" class="px-2">Socials</a></li>
+          <li><a [routerLink]="['/rules']" class="px-2">Regeln</a></li>
+          <li><a [routerLink]="['/gamemodes']" class="px-2">Spielmodi</a></li>
+          <li *ngIf="authService.isAuhenticated()"><a  class="px-2 logout pointer" (click)="logout()">Logout</a></li>
+      </ul>
+  </div>
+</header> -->
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col float-left">
+        <div class="logo">
+          <a [routerLink]="['/auth']"><img src="../../../assets/img/logo.png" alt="logo"></a>
+        </div>
+        <span>ShinyCreators</span>
+      </div>
+      <div class="col float-right">
+        <ul class="nav">
+          <li><a [routerLink]="['/']" class="px-2">Home</a></li>
+          <li><a href="./forum" class="px-2">Forum</a></li>
+          <li><a href="https://shinycreators.tebex.io" class="px-2">Shop</a></li>
+          <li><a [routerLink]="['/team']" class="px-2">Team</a></li>
+          <li><a [routerLink]="['/socials']" class="px-2">Socials</a></li>
+          <li><a [routerLink]="['/rules']" class="px-2">Regeln</a></li>
+          <li><a [routerLink]="['/gamemodes']" class="px-2">Spielmodi</a></li>
+          <li *ngIf="authService.isAuhenticated()"><a class="px-2 logout pointer" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<ul id="menus">
+  <a [routerLink]="['/']">
+    <li>Home</li>
+  </a>
+  <hr>
+  <a [routerLink]="['/team']">
+    <li>Team</li>
+  </a>
+  <hr>
+  <a [routerLink]="['/socials']">
+    <li>Socials</li>
+  </a>
+  <hr>
+  <a [routerLink]="['/rules']">
+    <li>Regeln</li>
+  </a>
+  <hr>
+  <a [routerLink]="['/gamemodes']">
+    <li>Spielmodi</li>
+  </a>
+  <hr>
+</ul>

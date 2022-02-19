@@ -1,0 +1,123 @@
+a {
+  color: rgba(0, 0, 0, 0);
+}
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  font-family: Lato;
+  font-size: 80px;
+  text-align: center;
+  margin-bottom: 0;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0px 0px 10px #000000;
+  transition: 500ms;
+  text-transform: uppercase;
+}
+.bg {
+  padding: 80px 0;
+  display: block;
+  background: url("../../../../assets/img/tree.jpg");
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+/* Column Gap */
+.cardList > * {
+  box-sizing: border-box;
+}
+.cardList > *:not(:last-child) {
+  margin-right: 32px;
+}
+/* Item sizing */
+.cardListItem {
+  flex: 0 1 calc(33.3% - 32px);
+}
+
+/* Media Queries */
+@media (max-width: 720px) {
+  #menus {
+    position: absolute;
+    width: 100%;
+    z-index: 4;
+  }
+  #fade {
+    z-index: 1;
+    opacity: 1;
+    transition: 500ms;
+    margin-top: 0%;
+  }
+  #te:hover + #fade {
+    margin-top: 0%;
+    opacity: 1;
+    transition: 500ms;
+  }
+  .logo {
+    width: 100%;
+  }
+  .header {
+    align-items: unset;
+    justify-content: left;
+  }
+  .menu {
+    display: block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 10%;
+    margin-left: 85%;
+  }
+  div.sectionn {
+    float: left;
+    width: 100%;
+    margin-left: 0;
+  }
+  div.sectionn img {
+    width: 60%;
+    margin-left: 20%;
+  }
+  div.sectionn h2 {
+    margin-top: 3%;
+    font-size: 25px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .bg {
+    padding: 50px 0;
+  }
+  .nav {
+    display: none;
+    height: 0px;
+  }
+
+  ul {
+    display: none;
+    text-align: center;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  ul li {
+    margin-bottom: 5px;
+    list-style: none;
+  }
+  #come1,
+  #come2,
+  #come3,
+  #come4,
+  #come5 {
+    display: none;
+  }
+  #come5 {
+    display: none;
+  }
+  .abstand {
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+}

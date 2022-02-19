@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="bg">
+  <div class="content">
+    <form [formGroup]="loginForm">
+      <div class="row mb-3">
+          <label>Email</label>
+          <input type="text" matInput formControlName="email">
+      </div>
+      <div class="row mb-3">
+          <label for="floatingPassword">Password</label>
+          <input type="password" id="floatingPassword" matInput formControlName="password">
+      </div>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+        <button class="btn btn-primary w-100" type="button" (click)="login()">
+          Login
+        </button>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <div class="row" *ngIf="notValid">
+        <div class="col">
+          <p>Falsche Anmeldedaten!</p>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

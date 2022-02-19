@@ -1,0 +1,23 @@
+<div class="container" *ngIf="rules" [formGroup]="rulesForm" (ngSubmit)="saveRules()">
+  <div class="row mt-3">
+    <div class="col">
+      <button class="btn btn-secondary w-100" type="button" [routerLink]="['/admin']">Cancel</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-warning w-100" type="button" (click)="addRule()">Add Rule</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success w-100" type="submit" (click)="saveRules()">Save</button>
+    </div>
+  </div>
+  <div formArrayName="rules">
+    <div class="row mt-2" *ngFor="let rule of rules.controls; let i = index">
+      <div class="col">
+        <input type="text" class="w-100" formControlName="{{ i }}">
+      </div>
+      <div class="col-auto">
+        <button class="btn-danger" type="button" (click)="removeRule(i)">X</button>
+      </div>
+    </div>
+  </div>
+</div>

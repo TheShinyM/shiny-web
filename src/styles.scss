@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+.zi-2 {
+  z-index: 2;
+}
+
+.zi-1 {
+  z-index: 1;
+}
+
+.add-btn {
+  right: 30px;
+  bottom: 30px;
+}
+
+.add-btn-bg {
+  background-color: aqua;
+  border-radius: 15px;
+}
+
+.mouse-curser,
+.pointer {
+  cursor: pointer;
+}

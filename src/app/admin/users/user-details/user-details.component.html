@@ -1,0 +1,36 @@
+<div class="container mt-5" *ngIf="user" [formGroup]="form">
+  <div class="row">
+    <div class="col d-flex align-items-center">
+      {{ user.name }}
+    </div>
+    <div class="col d-flex align-items-center">
+      {{ user.email }}
+    </div>
+    <div class="col">
+      <!-- {{ user.roles }} -->
+      <mat-form-field>
+        <mat-label>Rolle</mat-label>
+        <mat-select formControlName="role">
+          <mat-option [value]="roles.ADMIN" [disabled]="!authService.hasAdmin()">Admin</mat-option>
+          <mat-option [value]="roles.SHINY">Shiny</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col">
+      Erstellt am: {{ user.createdAt | date:"dd.MM.yyyy" }}
+    </div>
+    <div class="col">
+      Aktualisiert am: {{ user.updatedAt | date:"dd.MM.yyyy" }}
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <button type="button" class="btn btn-success w-100" (click)="saveUser()">Save</button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-secondary w-100" [routerLink]="['/admin/users']">Cancel</button>
+    </div>
+  </div>
+</div>
