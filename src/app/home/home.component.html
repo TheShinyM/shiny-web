@@ -1,20 +1,12 @@
-<div class="costum-container">
-  <!-- <header> -->
-      <div class="header">
-
-      <h1 class="animate pb-4 mt-5">Willkommen auf der ShinyCreators.de Webseite</h1>
-      <div class="playercount">
-        <p>Trete <span data-playercounter-ip="shinycreators.de">
-        0</span> anderen Spielern auf <span>ShinyCreators.de</span> bei</p>
-      </div>
-  <!-- </header> -->
-    <div class="main-content row">
-      <h2>&Uuml;ber uns</h2>
-      <p class="about-text">ShinyCreators ist ein revolutionärer Minecraft Server. Wir bieten neue selbstgemachte Spielmodi.<br><br>Sie können unserem Server mit der IP ShinyCreators.de beitreten</p>
-    </div>
-      <div class="row">
-        <div class="col-12">
-          <app-footer></app-footer>
-        </div>
-      </div>
+<section class="navigation">
+    <app-header></app-header>
+</section>
+<div fullpage id="fullpage" [options]="config" (ref)="getRef($event)">
+  <div class="section">
+    <app-intro></app-intro>
+  </div>
+  <div class="section">
+    <app-contact></app-contact>
+  </div>
 </div>
+<app-footer></app-footer>
