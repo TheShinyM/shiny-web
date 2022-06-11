@@ -4,7 +4,6 @@
 }
 h1 {
     padding-top: 90px;
-    text-decoration: underline;
     font-weight: bold;
     color: white;
 }
@@ -26,19 +25,16 @@ a {
   border-radius: 50px;
   margin-top: 4%;
   width: 290px;
+  background-color: rgba(5, 5, 5, 0.5);
 }
 
 .dc:hover{
-  background-color: rgba(5, 5, 5, 0.5);
+  // background-color: rgba(5, 5, 5, 0.5);
   transform: scale(1.2);
   transition: 0.3s;
+
 }
 
-// img {
-//   transition: 0.3s;
-//   border-radius: 25%;
-//   margin-top: 4%;
-// }
 
 .forum {
   // background-color: rgba(5, 5, 5, 0.5);;
@@ -47,12 +43,17 @@ a {
   width: 250px;
   // width: 50%;
   transition: 0.5s;
+  @media (max-width: 480px) {
+      width: 160px;
+  }
 }
 
 .forum:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   transition: 0.5s;
-  background-color: rgba(5, 5, 5, 0.5);
+background-color: rgba(5, 5, 5, 0.5);
+  -webkit-box-shadow: 5px 5px 24px 14px #000000;
+    box-shadow: 5px 5px 24px 14px #000000;
 }
 
 h2 {

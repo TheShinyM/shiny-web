@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit, OnChanges {
 
     public open: boolean = true;
 
+    public menuOpen: boolean = false;
+
     public user: User;
 
     public authenticated: boolean;
@@ -26,24 +28,30 @@ export class HeaderComponent implements OnInit, OnChanges {
 
     ngOnInit(): void {}
     public openMenu(): void {
-        if (this.open === true) {
+        if (this.menuOpen === false) {
+            // ! OPEN
             // document.getElementById("menus").style.display = "block";
-            document.getElementById("menus").style.transform = "translateY(0px)";
-            document.getElementById("menus").style.opacity = "1";
-            document.getElementById("menus").style.transition =
-                "opacity 450ms ease-in-out, transform 450ms ease-in-out";
-            document.getElementById("menus").style.pointerEvents = "auto";
-            this.open = false;
-        } else if (this.open == false) {
+            // document.getElementById("menus").style.transform = "translateY(0px)";
+            // document.getElementById("menus").style.opacity = "1";
+            // document.getElementById("menus").style.transition =
+            //     "opacity 450ms ease-in-out, transform 450ms ease-in-out";
+            // document.getElementById("menus").style.pointerEvents = "auto";
+            this.menuOpen = true;
+            setTimeout(() => {
+                document.getElementById("mobileMenu").classList.add("mobile-menu-open");
+            });
+        } else if (this.menuOpen == true) {
             // document.getElementById("menus").style.display = "none";
 
-            document.getElementById("menus").style.pointerEvents = "none";
-            document.getElementById("menus").style.transition =
-                "opacity 450ms ease-in-out, transform 450ms ease-in-out";
-            document.getElementById("menus").style.opacity = "0";
-            document.getElementById("menus").style.transform = "translateY(-20px)";
-
-            this.open = true;
+            // document.getElementById("menus").style.pointerEvents = "none";
+            // document.getElementById("menus").style.transition =
+            //     "opacity 450ms ease-in-out, transform 450ms ease-in-out";
+            // document.getElementById("menus").style.opacity = "0";
+            // document.getElementById("menus").style.transform = "translateY(-20px)";
+            document.getElementById("mobileMenu").classList.remove("mobile-menu-open");
+            setTimeout(() => {
+                this.menuOpen = false;
+            }, 600);
         }
     }
 

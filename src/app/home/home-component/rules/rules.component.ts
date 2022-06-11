@@ -26,7 +26,9 @@ export class RulesComponent implements OnInit {
     }
 
     public makeRuleArray(stringRules: string) {
-        this.rules = stringRules.split(";");
+        if (stringRules) {
+            this.rules = stringRules?.split(";");
+        }
     }
 
     ngOnInit(): void {}

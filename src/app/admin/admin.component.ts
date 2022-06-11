@@ -27,10 +27,7 @@ export class AdminComponent implements OnInit {
     ];
 
     constructor(private router: Router, private route: ActivatedRoute) {
-        this.route.root.url.subscribe((params: any) => {
-            console.log(params);
-        });
-        // this.router.navigateByUrl(this.tabs[0].url[0]);
+        this.route.root.url.subscribe((params: any) => {});
     }
 
     ngOnInit(): void {}

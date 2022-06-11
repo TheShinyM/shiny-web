@@ -13,8 +13,6 @@ export class GamemodeBack {
     }
 
     public toString(rul: string): string[] {
-        console.log(rul + " d");
-
         return ["t", "d"];
         // rul.split(";");
     }

@@ -5,9 +5,9 @@
   <h2 class="mb-5">Beschreibung</h2>
   <p class="mx-5 text-center">{{ gm?.description }}</p>
   <h2 class="mt-1">Regeln</h2>
-  <ol *ngIf="gm?.rules.length > 0">
+  <ol *ngIf="gm?.rules?.length > 0">
     <li *ngFor="let rule of gm.rules">{{ rule }}</li>
-    <li>Die Nutzungsbedingungen gelten auch in BuildUp</li>
+    <li>Die Nutzungsbedingungen gelten auch in {{ gm?.name }}</li>
   </ol>
   <br>
   </div>

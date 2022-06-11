@@ -10,18 +10,15 @@ import { GamemodeService } from "../gm.service";
     styleUrls: ["./gm-details.component.scss"]
 })
 export class GmDetailsComponent implements OnInit {
-    id: number;
-    gm: Gamemode;
+    public id: number;
+    public gm: Gamemode;
 
-    constructor(private route: ActivatedRoute, private gamemodeService: GamemodeService) {
-        // this.id = Number(this.route.snapshot.paramMap.get("id"));
-        // this.gm = this.gamemodeService.getGamemode(this.id);
-    }
+    public constructor(private route: ActivatedRoute, private gamemodeService: GamemodeService) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.id = Number(this.route.snapshot.paramMap.get("id"));
         this.gamemodeService.getGamemode(this.id).subscribe((res: GamemodeBack) => {
-            this.gm = new Gamemode({ ...res, rules: res.rules.split(";") });
+            this.gm = new Gamemode({ ...res, rules: res?.rules?.split(";") });
         });
     }
 }
