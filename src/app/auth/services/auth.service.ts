@@ -68,6 +68,17 @@ export class AuthService {
     }
 
     public hasAdmin(): boolean {
-        return this.user.hasAdmin();
+        if (this.user) {
+            return this.user.hasAdmin();
+        }
+        this.getMe();
+        return false;
+        // this.hasAdmin();
+    }
+
+    public getMe(): void {
+        this.http.get<User>(this.env.url + "/getme").subscribe((res: User) => {
+            this.user = new User(res);
+        });
     }
 }

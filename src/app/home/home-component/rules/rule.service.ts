@@ -21,7 +21,6 @@ export class RuleService {
     }
 
     public getRules(): Observable<Rule[]> {
-        console.log("getting stringRules");
         if (this.stringRules) {
             let rule: Rule[] = [];
             rule.push({
@@ -29,9 +28,8 @@ export class RuleService {
             });
             return of(rule);
         }
-        return this.http.get(this.apiUrl + "rules").pipe(
+        return this.http.get(this.apiUrl + "/rules").pipe(
             tap((res: Rule[]) => {
-                console.log(res + "running");
                 this.makeRuleArray(res[0].rules);
                 return res;
             })

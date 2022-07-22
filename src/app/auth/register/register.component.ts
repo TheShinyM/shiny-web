@@ -12,9 +12,9 @@ export class RegisterComponent implements OnInit {
 
     public email: FormControl = new FormControl(null, [Validators.required, Validators.email]);
 
-    public password: FormControl = new FormControl(null, [Validators.required]);
+    public password: FormControl = new FormControl(null, [Validators.required, Validators.minLength(8)]);
 
-    public password2: FormControl = new FormControl(null, [Validators.required]);
+    public password2: FormControl = new FormControl(null, [Validators.required, Validators.minLength(8)]);
 
     public registerForm: FormGroup = new FormGroup({
         name: this.name,
@@ -30,9 +30,9 @@ export class RegisterComponent implements OnInit {
     ngOnInit(): void {}
 
     public registerUser(): void {
-        if (this.registerForm.valid) {
+        if (this.registerForm.valid && this.password.value === this.password2.value) {
             if (this.password.value === this.password2.value) {
-                this.authService.register(this.email.value, this.name.value, this.password.value).subscribe;
+                this.authService.register(this.email.value, this.name.value, this.password.value).subscribe();
             } else {
             }
         }

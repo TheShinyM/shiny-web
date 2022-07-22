@@ -28,8 +28,6 @@
           </mat-form-field>
           <img *ngIf="!editMode" [src]="gm.pictureURL" [alt]="gm.name" class="w-75">
           </div>
-        <!-- </div> -->
-        <!-- <div class="row"> -->
           <div class="col-6">
           <mat-form-field class="w-100">
             <mat-label>HintergrundURL</mat-label>
@@ -38,6 +36,28 @@
           <img *ngIf="!editMode" [src]="gm.backgroundURL" [alt]="gm.name" class="w-75 mt-2">
           </div>
         </div>
+        <!-- <div class="row">
+          <div class="col">
+            <mat-expansion-panel class="bg-none" formArrayName="gameItems">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h5 class="mb-0">Gameitems</h5>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="row" *ngFor="let gameitem of gameItems.controls">
+                <div class="col-4">
+                  <img src="{{ gameitem.img || 'https://cdn.pixabay.com/photo/2016/08/07/15/34/do-not-take-photos-1576438_960_720.png'}}" alt="">
+                </div>
+                <div class="col-8">
+                  <mat-form-field class="w-100">
+                    <mat-label>Gameitem Img</mat-label>
+                    <input type="text" mat-input matInput formControlName="img">
+                  </mat-form-field>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </div>
+        </div> -->
         <div class="row mt-3">
           <div class="col-6">
             <button class="btn btn-secondary w-100" type="button" [routerLink]="['/admin/gm']">Cancel</button>
@@ -57,6 +77,11 @@
         <div class="row">
           <div class="form-group">
             <div class="col-12" formArrayName="rules">
+              <div class="row mt-5">
+                <div class="col-12">
+                  <button type="button" class="btn btn-primary w-25" (click)="addRule()">Add Rule</button>
+                </div>
+              </div>
               <div class="row" *ngFor="let ruli of rules.controls; let i = index"
                 style="margin-top: 10px;">
                 <div class="col-10">
@@ -64,12 +89,6 @@
                 </div>
                 <div class="col-2">
                   <button type="button" class="btn btn-danger" (click)="deleteRule(i)">X</button>
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-xs-12">
-                  <button type="button" class="btn btn-primary" (click)="addRule()">Add Rule</button>
                 </div>
               </div>
             </div>

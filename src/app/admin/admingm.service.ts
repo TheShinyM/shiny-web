@@ -25,9 +25,6 @@ export class AdminGeneralService {
     }
 
     public getGamemode(id: number): AdminGamemodeEntity {
-        console.log(this.gms[id]);
-        console.log(this.gms);
-
         return this.gms.find((gm: AdminGamemodeEntity) => gm.id === id);
     }
 

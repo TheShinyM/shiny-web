@@ -6,6 +6,9 @@ import { CardComponent } from "./card/card.component";
 import { GamemodesComponent } from "./gamemodes.component";
 import { GmDetailsComponent } from "./gm-details/gm-details.component";
 import { GamemodeService } from "./gm.service";
+import { GameItemComponent } from './game-item/game-item.component';
+import { MatExpansionModule } from "@angular/material/expansion";
+
 
 const ROUTES: Routes = [
     {
@@ -20,8 +23,8 @@ const ROUTES: Routes = [
 ];
 
 @NgModule({
-    imports: [WebCommonModule, CommonModule, RouterModule.forChild(ROUTES)],
-    declarations: [GamemodesComponent, CardComponent, GmDetailsComponent],
+    imports: [WebCommonModule, CommonModule, RouterModule.forChild(ROUTES), MatExpansionModule],
+    declarations: [GamemodesComponent, CardComponent, GmDetailsComponent, GameItemComponent],
     providers: [GamemodeService]
 })
 export class GamemodeModule {}

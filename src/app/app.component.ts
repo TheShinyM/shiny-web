@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { EventService } from "./services/event.service";
 
 @Component({
     selector: "app-root",
@@ -6,5 +7,7 @@ import { Component } from "@angular/core";
     styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-    title = "shiny-web";
+    public constructor(private eventService: EventService) {
+        this.eventService.sendWebEvent("website", new Date(), new Date(), "1");
+    }
 }

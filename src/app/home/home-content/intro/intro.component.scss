@@ -38,6 +38,7 @@
 }
 //
 .video-background {
+      width: 150%;
   background: #000;
   position: fixed;
   top: 0;
@@ -45,6 +46,9 @@
   bottom: 0;
   left: 0;
   z-index: -99;
+  @media (min-width: 1200px) {
+    width: 100%
+  }
 }
 
 .video-foreground,

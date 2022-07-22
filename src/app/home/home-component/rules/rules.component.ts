@@ -15,8 +15,6 @@ export class RulesComponent implements OnInit {
     public rules: string[] = [];
 
     constructor(private ruleService: RuleService, private http: HttpClient, private readonly env: EnvService) {
-        console.log("constructing");
-
         // this.ruleService.getRules().subscribe((res: Rule[]) => {
         //     this.makeRuleArray(res[0].rules);
         // });

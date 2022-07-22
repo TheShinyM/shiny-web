@@ -1,11 +1,12 @@
 <app-header></app-header>
 <div class="bg">
-<h1 class="mb-5">Spielmodi</h1>
-          <div class="cardList">
-            <ng-container *ngFor="let gm of gms; let i = index">
-              <app-card class="cardListItem" [name]="gm.name" [pictureURL]="gm.pictureURL" [id]="gm.id"></app-card>
-            </ng-container>
-          </div>
+  <h1 class="mb-5">Spielmodi</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6 col-xl-4" *ngFor="let gm of gms; let i = index">
+            <app-card [name]="gm.name" [pictureURL]="gm.pictureURL" [id]="gm.id"></app-card>
+        </div>
+      </div>
     </div>
-    <!-- <router-outlet></router-outlet> -->
+</div>
 <app-footer></app-footer>

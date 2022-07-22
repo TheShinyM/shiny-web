@@ -16,12 +16,7 @@ export class HomeComponent implements OnInit {
             // fullpage options
             licenseKey: "E8B99B72-16C84745-96B3A6AE-817347D7",
             anchors: ["intro", "contact"],
-            menu: "#menu",
-
-            // fullpage callbacks
-            afterResize: () => {
-                console.log("After resize");
-            }
+            menu: "#menu"
         };
     }
 

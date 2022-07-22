@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from "@angular/core";
+import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from "@angular/core";
 import { AuthService } from "src/app/auth/services/auth.service";
 import { User } from "src/app/auth/services/user";
 
@@ -10,9 +10,13 @@ import { User } from "src/app/auth/services/user";
 export class HeaderComponent implements OnInit, OnChanges {
     @Input() home: boolean = false;
 
+    @ViewChild("burgerMenuBtn") public burgerMenuBtn: ElementRef<HTMLButtonElement>;
+
     public open: boolean = true;
 
     public menuOpen: boolean = false;
+
+    public mobileMenuProzessEnded: boolean = true;
 
     public user: User;
 
@@ -27,30 +31,28 @@ export class HeaderComponent implements OnInit, OnChanges {
     }
 
     ngOnInit(): void {}
+
     public openMenu(): void {
-        if (this.menuOpen === false) {
+        if (this.menuOpen === false && this.mobileMenuProzessEnded) {
+            this.mobileMenuProzessEnded = false;
             // ! OPEN
-            // document.getElementById("menus").style.display = "block";
-            // document.getElementById("menus").style.transform = "translateY(0px)";
-            // document.getElementById("menus").style.opacity = "1";
-            // document.getElementById("menus").style.transition =
-            //     "opacity 450ms ease-in-out, transform 450ms ease-in-out";
-            // document.getElementById("menus").style.pointerEvents = "auto";
             this.menuOpen = true;
+            this.burgerMenuBtn.nativeElement.classList.toggle("opened");
+
+            if (this.burgerMenuBtn.nativeElement.classList.contains("opened")) {
+                this.burgerMenuBtn.nativeElement.setAttribute("aria-expanded", "");
+            }
             setTimeout(() => {
                 document.getElementById("mobileMenu").classList.add("mobile-menu-open");
-            });
-        } else if (this.menuOpen == true) {
-            // document.getElementById("menus").style.display = "none";
-
-            // document.getElementById("menus").style.pointerEvents = "none";
-            // document.getElementById("menus").style.transition =
-            //     "opacity 450ms ease-in-out, transform 450ms ease-in-out";
-            // document.getElementById("menus").style.opacity = "0";
-            // document.getElementById("menus").style.transform = "translateY(-20px)";
+                this.mobileMenuProzessEnded = true;
+            }, 50);
+        } else if (this.menuOpen == true && this.mobileMenuProzessEnded) {
+            this.burgerMenuBtn.nativeElement.classList.toggle("opened");
+            this.mobileMenuProzessEnded = false;
             document.getElementById("mobileMenu").classList.remove("mobile-menu-open");
             setTimeout(() => {
                 this.menuOpen = false;
+                this.mobileMenuProzessEnded = true;
             }, 600);
         }
     }

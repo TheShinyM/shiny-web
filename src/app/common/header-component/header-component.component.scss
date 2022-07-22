@@ -124,6 +124,9 @@ hr {
   .logo {
     margin-bottom: 1%;
   }
+    .logo:hover {
+      transform: scale(1);
+    }
 }
 
 .desktop-menu a {
@@ -150,6 +153,8 @@ hr {
 .logo:hover {
   transform: scale(1.05);
 }
+
+// @media (min-width: )
 
 /** BURGER */
 .menu {
@@ -212,6 +217,7 @@ a:hover.logout {
   width: 100%;
   transition: 0.5s;
   opacity: 0;
+  z-index: 100;
 }
 
 .mobile-menu-open {

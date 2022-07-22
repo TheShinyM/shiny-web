@@ -8,8 +8,13 @@
   font-size: 20px;
   min-height: 80vh;
 }
-.tbd li{
+li{
   margin: 5px;
+  font-size: 1rem;
+
+    @media (min-width: 1200px) {
+      font-size: 1.5rem;
+    }
 }
 
 //
@@ -36,7 +41,10 @@ p {
 }
 
 h1 {
-	font-size: 1.8em;
+  font-size: 1.5em;
+  @media (min-width: 1200px) {
+    font-size: 1.8em;
+  }
 }
 
 h2 {

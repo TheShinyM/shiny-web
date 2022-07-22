@@ -5,8 +5,7 @@
           <a [routerLink]="['/auth']"><img src="../../../assets/img/logo.png" alt="logo"></a>
       </div>
           <button class="menu me-2" id="men" (click)="openMenu()"
-            onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
-            aria-label="Main Menu">
+            aria-label="Main Menu" #burgerMenuBtn>
             <svg width="60" height="60" viewBox="0 0 100 100">
               <path class="line line1"
                 d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
@@ -29,9 +28,9 @@
       </div>
       <div class="col float-right d-flex align-items-center desktop-menu">
         <a [routerLink]="['/']" class="px-2 my-auto">Home</a>
-        <a href="https://forum.shinycreators.de" class="px-2">Forum</a>
-        <a href="https://shinycreators.tebex.io" class="px-2">Shop</a>
-        <a [routerLink]="['/team']" class="px-2">Team</a>
+        <a href="https://forum.shinycreators.de" target="_blank" class="px-2">Forum</a>
+        <a href="https://shinycreators.tebex.io" target="_blank"  class="px-2">Shop</a>
+        <a href="https://forum.shinycreators.de/team/" target="_blank" class="px-2">Team</a>
         <a [routerLink]="['/rules']" class="px-2">Regeln</a>
         <a [routerLink]="['/gamemodes']" class="px-2">Spielmodi</a>
         <a class="px-2 logout pointer" *ngIf="authService.isAuhenticated()" (click)="logout()">Logout</a>
@@ -44,9 +43,9 @@
   <a [routerLink]="['/']" class="px-2 my-auto">
     <li>Home</li>
   </a>
-  <a href="https://forum.shinycreators.de" class="px-2"><li>Forum</li></a>
-  <a href="https://shinycreators.tebex.io" class="px-2"><li>Shop</li></a>
-  <a [routerLink]="['/team']" class="px-2"><li>Team</li></a>
+  <a href="https://forum.shinycreators.de" target="_blank" class="px-2"><li>Forum</li></a>
+  <a href="https://shinycreators.tebex.io" target="_blank" class="px-2"><li>Shop</li></a>
+  <a href="https://forum.shinycreators.de/team/" target="_blank" class="px-2"><li>Team</li></a>
   <a [routerLink]="['/rules']" class="px-2"><li>Regeln</li></a>
   <a [routerLink]="['/gamemodes']" class="px-2"><li>Spielmodi</li></a>
   <a class="px-2 pointer" *ngIf="authService.isAuhenticated()" (click)="logout()"><li class="logout">Logout</li></a>

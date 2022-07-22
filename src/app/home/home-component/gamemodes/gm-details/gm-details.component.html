@@ -1,17 +1,42 @@
 <app-header></app-header>
-<div class="content" *ngIf="gm">
-  <div class="container">
-  <h1>{{ gm?.name }}</h1>
-  <h2 class="mb-5">Beschreibung</h2>
-  <p class="mx-5 text-center">{{ gm?.description }}</p>
-  <h2 class="mt-1">Regeln</h2>
-  <ol *ngIf="gm?.rules?.length > 0">
-    <li *ngFor="let rule of gm.rules">{{ rule }}</li>
-    <li>Die Nutzungsbedingungen gelten auch in {{ gm?.name }}</li>
-  </ol>
-  <br>
+<div class="background" style="background-image: url('{{gm?.backgroundURL}}');" >
+  <div class="content"*ngIf="gm">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>{{ gm?.name }}</h1>
+          <h2 class="mb-5">Beschreibung</h2>
+          <p class="mx-2 mx-md-5 text-center">{{ gm?.description }}</p>
+          <h2 class="mt-1" *ngIf="gm?.gameItems">Items</h2>
+        </div>
+      </div>
+      <div class="row" *ngIf="gm?.gameItems">
+        <div class="col">
+          <mat-expansion-panel class="bg-none" >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h5 class="mb-0">Gameitems</h5>
+              </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="row">
+                <div class="col-12 col-xl-6" *ngFor="let gameItem of gm?.gameItems">
+                  <app-game-item [gameItem]="gameItem"></app-game-item>
+                </div>
+              </div>
+          </mat-expansion-panel>
+        </div>
+      </div>
+      <div class="row" *ngIf="gm?.rules[0].length > 0">
+        <div class="col">
+          <h2 class="mt-1">Regeln</h2>
+          <ol>
+            <li *ngFor="let rule of gm.rules">{{ rule }}</li>
+          </ol>
+          <br>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<img [src]="gm?.backgroundURL" alt="Kein Bild" *ngIf="gm">
 
 

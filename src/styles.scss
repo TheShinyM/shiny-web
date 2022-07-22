@@ -37,3 +37,10 @@ body {
 .pointer {
     cursor: pointer;
 }
+
+.bg-none {
+  &.mat-expansion-panel {
+    background: none;
+    box-shadow: none;
+  }
+}

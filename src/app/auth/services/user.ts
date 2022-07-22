@@ -26,6 +26,6 @@ export class User {
     }
 
     public hasAdmin(): boolean {
-        return this.roles.includes(UserRole.ADMIN);
+        return this.roles === UserRole.ADMIN;
     }
 }

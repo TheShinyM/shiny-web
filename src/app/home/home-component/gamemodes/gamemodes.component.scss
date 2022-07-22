@@ -19,9 +19,11 @@ h1 {
   padding: 80px 0;
   display: block;
   background: url("../../../../assets/img/tree.jpg");
-  height: 100vh;
+  min-height: 100vh;
+  height: min-content;
   background-attachment: fixed;
   background-size: cover;
+  background-position: center;
 }
 
 /* Column Gap */
@@ -85,7 +87,7 @@ h1 {
     font-size: 30px;
   }
   .bg {
-    padding: 50px 0;
+    padding: 40px 0;
   }
   .nav {
     display: none;

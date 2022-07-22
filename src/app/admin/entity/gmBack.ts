@@ -5,6 +5,7 @@ export class gmBack {
     description: string;
     rules: string[];
     backgroundURL: string;
+    // gameItems: GameItem[];
 
     public constructor(name?: Partial<gmBack>) {
         Object.assign(this, name);

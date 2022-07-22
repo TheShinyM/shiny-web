@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 import { EnvService } from "src/app/env/env.service";
@@ -11,7 +11,7 @@ import { RulesService } from "./rules.service";
     templateUrl: "./rules.component.html",
     styleUrls: ["./rules.component.scss"]
 })
-export class RulesAComponent implements OnInit {
+export class RulesAComponent {
     private apiUrl: string = this.env.url;
 
     public rules: FormArray = new FormArray([]);
@@ -31,24 +31,18 @@ export class RulesAComponent implements OnInit {
         private http: HttpClient,
         private readonly env: EnvService
     ) {
-        this.http.get(this.apiUrl + "rules").subscribe((res: Rule[]) => {
-            if (res[0].rules.length <= 0) {
-                this.getRulesComponent();
-            }
-            return res[0].rules;
-        });
+        this.getRulesComponent();
     }
 
     public async getRulesComponent(): Promise<void> {
         this.rulesService.getRules().subscribe((res: Rule[]) => {
-            const rul: Rule[] = this.rulesService.makeRuleArray(res[0].rules);
+            const rul: Rule[] = this.makeRuleArray(res[0].rules);
+
             rul.forEach((rule: Rule) => {
                 this.rules.push(new FormControl(rule.rules, []));
             });
         });
     }
-
-    ngOnInit(): void {}
 
     public removeRule(id: number): void {
         (this.rulesForm.get("rules") as FormArray).removeAt(id);
@@ -66,12 +60,20 @@ export class RulesAComponent implements OnInit {
         });
     }
 
-    public makeRuleArray(rules: string): string[] {
-        const rulesString: string[] = rules.split(";");
-        rulesString.forEach((rule: string) => {
-            this.rules.push(new FormControl(rule, []));
-        });
+    // public makeRuleArray(rules: string): string[] {
+    //     const rulesString: string[] = rules.split(";");
+    //     rulesString.forEach((rule: string) => {
+    //         this.rules.push(new FormControl(rule, []));
+    //     });
 
-        return rulesString;
+    //     return rulesString;
+    // }
+    public makeRuleArray(rules: string): Rule[] {
+        const stringArray: string[] = rules.split(";");
+        const ruleFormArray: Rule[] = [];
+        stringArray.forEach((stringA: string) => {
+            ruleFormArray.push({ rules: stringA });
+        });
+        return ruleFormArray;
     }
 }

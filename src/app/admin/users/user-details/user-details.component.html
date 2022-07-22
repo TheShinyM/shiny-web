@@ -3,7 +3,7 @@
     <div class="col d-flex align-items-center">
       {{ user.name }}
     </div>
-    <div class="col d-flex align-items-center">
+    <div class="col d-flex align-items-center" *ngIf="user.email">
       {{ user.email }}
     </div>
     <div class="col">
