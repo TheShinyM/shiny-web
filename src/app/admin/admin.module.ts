@@ -13,10 +13,11 @@ import { RulesService } from "./rules/rules.service";
 import { AdminUserService } from "./users/service/users.service";
 import { UsersComponent } from "./users/users.component";
 import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { ImgLinkComponent } from './img-link/img-link.component';
 
 @NgModule({
     imports: [WebCommonModule, CommonModule, AdminRoutingModule, MatModule],
-    declarations: [AdminComponent, AdmingmodesComponent, AdminGmDetailsComponent, RulesAComponent, UsersComponent, UserDetailsComponent],
+    declarations: [AdminComponent, AdmingmodesComponent, AdminGmDetailsComponent, RulesAComponent, UsersComponent, UserDetailsComponent, ImgLinkComponent],
     providers: [AdminGamemodeService, AdminGeneralService, RulesService, AdminUserService]
 })
 export class AdminModule {}
