@@ -151,10 +151,12 @@ hr {
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  @media (min-width: 1920px) {
+    transform: scale(1.05);
+  }
 }
 
-// @media (min-width: )
+
 
 /** BURGER */
 .menu {

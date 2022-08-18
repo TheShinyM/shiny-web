@@ -39,7 +39,7 @@
   </div>
 </header>
 <!-- Mobile Menu -->
-<ul class="mobile-menu" id="mobileMenu" [class.d-none]="!menuOpen" [class.d-block]="menuOpen">
+<ul class="mobile-menu" id="mobileMenu" [class.d-none]="!menuOpen" [class.d-block]="menuOpen" #burgerMenuArea>
   <a [routerLink]="['/']" class="px-2 my-auto">
     <li>Home</li>
   </a>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, HostListener, Input, OnChanges, OnInit, ViewChild } from "@angular/core";
 import { AuthService } from "src/app/auth/services/auth.service";
 import { User } from "src/app/auth/services/user";
 
@@ -11,6 +11,17 @@ export class HeaderComponent implements OnInit, OnChanges {
     @Input() home: boolean = false;
 
     @ViewChild("burgerMenuBtn") public burgerMenuBtn: ElementRef<HTMLButtonElement>;
+
+    @ViewChild("burgerMenuArea") public burgerMenu: ElementRef<HTMLButtonElement>;
+
+    @HostListener("document:click", ["$event"]) public closeMenu(event: PointerEvent): void {
+        const target: Node = event.target as Node;
+        const burgerMenuArea: HTMLElement = this.burgerMenu?.nativeElement as HTMLElement;
+        const burgerMenuBtn: HTMLElement = this.burgerMenuBtn?.nativeElement as HTMLElement;
+        if ((!burgerMenuArea?.contains(target) || !burgerMenuBtn?.contains(target)) && this.menuOpen) {
+            this.openMenu();
+        }
+    }
 
     public open: boolean = true;
 
