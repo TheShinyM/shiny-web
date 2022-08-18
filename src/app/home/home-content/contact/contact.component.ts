@@ -1,12 +1,18 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { TeamspeakConfirmComponent } from "../teamspeak-confirm/teamspeak-confirm.component";
 
 @Component({
     selector: "app-contact",
     templateUrl: "./contact.component.html",
     styleUrls: ["./contact.component.scss"]
 })
-export class ContactComponent implements OnInit {
-    constructor() {}
+export class ContactComponent {
+    public constructor(private dialog: MatDialog) {}
 
-    ngOnInit(): void {}
+    public hasTeamspeak(): void {
+        this.dialog.open<TeamspeakConfirmComponent>(TeamspeakConfirmComponent, {
+            panelClass: ["teamspeak-bg"]
+        });
+    }
 }

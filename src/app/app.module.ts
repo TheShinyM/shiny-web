@@ -1,6 +1,8 @@
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatButtonModule } from "@angular/material/button";
+import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -23,6 +25,7 @@ import { HomeContentComponent } from "./home/home-content/home-content.component
 import { IntroComponent } from "./home/home-content/intro/intro.component";
 import { PartnerComponent } from "./home/home-content/partner/partner.component";
 import { RanksComponent } from "./home/home-content/ranks/ranks.component";
+import { TeamspeakConfirmComponent } from "./home/home-content/teamspeak-confirm/teamspeak-confirm.component";
 import { HomeComponent } from "./home/home.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
@@ -46,7 +49,8 @@ export function tokenGetter(): string | null {
         PartnerComponent,
         RanksComponent,
         ContactComponent,
-        IntroComponent
+        IntroComponent,
+        TeamspeakConfirmComponent
     ],
     imports: [
         BrowserModule,
@@ -70,7 +74,9 @@ export function tokenGetter(): string | null {
             }
         }),
         AngularFullpageModule,
-        MatIconModule
+        MatIconModule,
+        MatDialogModule,
+        MatButtonModule
     ],
     providers: [
         {

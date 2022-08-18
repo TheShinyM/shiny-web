@@ -1,5 +1,7 @@
+import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { WebCommonModule } from "./common/common.module";
 import { RulesComponent } from "./home/home-component/rules/rules.component";
 import { SocialsComponent } from "./home/home-component/socials/socials.component";
 import { TeamHomeComponent } from "./home/home-component/team-home/team-home.component";
@@ -25,21 +27,18 @@ const routes: Routes = [
     },
     {
         path: "gamemodes",
-        // component: GamemodesComponent,
         loadChildren: () => import("./home/home-component/gamemodes/gm.module").then((m) => m.GamemodeModule)
     },
-    // {
-    //     path: "gamemodes/:id",
-    //     component: GmDetailsComponent
-    // },
     {
         path: "auth",
-        // component: AuthComponent,
         loadChildren: () => import("./auth/auth.module").then((m) => m.AuthModule)
     },
     {
+        path: "sources",
+        loadChildren: () => import("./web-sources/websources.module").then((m) => m.WebSourcesModule)
+    },
+    {
         path: "admin",
-        // component: AdminComponent,
         loadChildren: () => import("./admin/admin.module").then((m) => m.AdminModule)
     },
     {
@@ -49,7 +48,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [WebCommonModule, CommonModule, RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
 export class HomeRoutingModule {}

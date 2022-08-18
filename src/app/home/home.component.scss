@@ -28,8 +28,8 @@
 
 .home {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55) 60%, rgba(224, 161, 1, 0.45) 100%),
-        url("../../assets/img/cinema.jpg") no-repeat center center;
+    // background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55) 60%, rgba(224, 161, 1, 0.45) 100%),
+    //     url("../../assets/img/cinema.jpg") no-repeat center center;
     width: 100%;
     text-align: center;
     // border-bottom: 2px solid #4286f4;
@@ -303,4 +303,8 @@ ul {
     stroke-dasharray: 90 207;
     stroke-dashoffset: -134;
     stroke-width: 6;
+}
+
+.contact {
+  background-color: #48b6ff;
 }
